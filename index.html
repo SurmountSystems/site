@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surmount Systems - Bitcoin Initiative for Quantum Security</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Open Graph Tags -->
+    <meta
+      property="og:title"
+      content="Surmount Systems - Bitcoin Initiative for Quantum Security"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surmount.systems/" />
+    <meta property="og:image" content="https://surmount.systems/logo.png" />
+    <meta
+      property="og:description"
+      content="At Surmount Systems, we are dedicated to pioneering advancements in quantum security for Bitcoin. Our initiative focuses on ensuring the integrity and security of the timechain in the quantum age."
+    />
+    <meta property="og:site_name" content="Surmount Systems" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Surmount Systems - Bitcoin Initiative for Quantum Security"
+    />
+    <meta
+      name="twitter:description"
+      content="At Surmount Systems, we are dedicated to pioneering advancements in quantum security for Bitcoin. Our initiative focuses on ensuring the integrity and security of the timechain in the quantum age."
+    />
+    <meta name="twitter:image" content="https://surmount.systems/logo.png" />
+    <meta name="twitter:site" content="@SurmountSystems" />
+    <meta name="twitter:creator" content="@SurmountSystems" />
+
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="Surmount Systems Logo" />
+      <h1>Surmount Systems</h1>
+      <h2>Bitcoin Initiative for Quantum Security</h2>
+    </header>
+    <main>
+      <section id="home" class="section">
+        <p>
+          At Surmount Systems, we are dedicated to pioneering advancements in
+          quantum security for Bitcoin. Our initiative focuses on ensuring the
+          integrity and security of the timechain in the quantum age.
+        </p>
+      </section>
+      <section id="projects" class="section">
+        <h3>Projects</h3>
+        <p>
+          Currently we're working on a BIP for a new quantum-resistant address
+          type called P2QRH, in a hypothetical soft fork called QuBit.
+        </p>
+        <p class="center">
+          <a
+            href="https://github.com/cryptoquick/bips/blob/p2qrh/bip-p2qrh.mediawiki"
+            >Draft BIP - QuBit - P2QRH</a
+          >
+        </p>
+        <p class="center">
+          <a href="https://github.com/SurmountSystems"
+            >Surmount Systems GitHub</a
+          >
+        </p>
+      </section>
+      <section id="social" class="section">
+        <h3>Reach Out</h3>
+        <p class="center">
+          <a href="https://x.com/SurmountSystems">@SurmountSystems on X</a>
+        </p>
+        <p class="center">
+          <a href="https://t.me/+bqrj37t3xXg5ZTg5">Telegram Group</a>
+        </p>
+      </section>
+      <section id="support" class="section">
+        <h3>Support</h3>
+        <p class="center">The Surmount Systems Foundation is a 501(c)(3) non-profit organization.</p>
+        <p class="center">We accept <a href="https://silentpayments.xyz">Silent Payments</a>:</p>
+        <p id="silent-payment" class="code">sp1qqveek65zqcz9xl44pjr65tzexlja7zn05kpe8rxxupr43lgtt6czgq6mm3vlgpwzap4f05854qkmqc2kaefl3e8dwcn24ykrrrck2vcspcfkk4kh</p>
+        <p class="center">We also accept <a href="https://bolt12.org/">BOLT-12</a> Lightning payments:</p>
+        <p id="bolt-12" class="code">lno1zrxq8pjw7qjlm68mtp7e3yvxee4y5xrgjhhyf2fxhlphpckrvevh50u0q2pmrtnrsk8qdhsad5fpxeqaa7zyea93kvuas6ycchu54mwpy0ux5qszx7e4hmyzv9cu8wp8rsuqgg860hnjyty84qp9eyyvq8pcr77nxjcqqveun7k49f74qm54fxxkln6s7tq970hhzpljsr7dvqjpdajc4f572qsk8xglxkg9jau9mys7xjyet536kcc7qvjmf0l4uver2a3trehyn58mz7d2rj0tjkvrg6k68cqxwcfd80crzqqsn54x9hkydqd9z2pu5a8u7zan4u</p>
+        <p class="center">Inquires regarding donations, such as to request a receipt, should be sent via direct message to <a href="https://x.com/SurmountSystems">@SurmountsSystems on X.</a></p>
+      </section>
+    </main>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+		    var elementIds = ["silent-payment", "bolt-12"];
+		    
+		    elementIds.forEach(function(id) {
+		        var element = document.getElementById(id);
+		        if (element) {
+		            element.addEventListener("click", function() {
+		                // Copy the content to the clipboard
+		                var textToCopy = element.textContent || element.innerText;
+		                navigator.clipboard.writeText(textToCopy).then(function() {
+		                    // Flash bright blue 2 times in 1 second, starting immediately
+		                    var originalBackground = element.style.backgroundColor || '';
+		                    var flashCount = 0;
+		                    var isBlue = true;
+		
+		                    // Set background to blue immediately
+		                    element.style.backgroundColor = 'blue';
+		
+		                    var flashInterval = setInterval(function() {
+		                        // Toggle background color between blue and original
+		                        element.style.backgroundColor = isBlue ? originalBackground : 'blue';
+		                        isBlue = !isBlue;
+		                        flashCount++;
+		
+		                        // Stop flashing after 4 toggles (2 flashes)
+		                        if (flashCount === 4) {
+		                            clearInterval(flashInterval);
+		                            element.style.backgroundColor = originalBackground;
+		                        }
+		                    }, 250); // Change color every 250ms
+		                }, function(err) {
+		                    console.error('Could not copy text: ', err);
+		                });
+		            });
+		        }
+		    });
+		});
+	</script>
+  </body>
+</html>

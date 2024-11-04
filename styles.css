@@ -1,0 +1,92 @@
+body {
+  background-color: #0e2436;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #0e2436;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  height: 256px;
+}
+
+header h1,
+header h2 {
+  margin: 5px 0;
+}
+
+nav {
+  background-color: #1b3b57;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #ffffff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for main sections */
+.section {
+  background-color: #1b3b57; /* Slightly lighter background for sections */
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px; /* Rounded corners */
+  max-width: 800px; /* Max width for readability */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Headings within sections */
+.section h3 {
+  color: #ffffff; /* Light blue color for section headings */
+  margin-bottom: 15px; /* Space below headings */
+  font-size: 1.5em; /* Slightly larger font size */
+  display: inline-block; /* Ensure underline width fits heading text */
+}
+
+/* Paragraphs within sections */
+.section p {
+  line-height: 1.6; /* Increased line height for readability */
+  
+  margin-bottom: 15px; /* Space below paragraphs */
+  text-align: left;
+}
+
+.section .center {
+  text-align: center;
+  font-size: 1.1em; /* Slightly larger font size */
+}
+
+a {
+  color: #1e90ff; /* Light blue color for links */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+a:hover {
+  color: #ff4500; /* Orange color on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.code {
+  font-size: 0.8em;
+  word-break: break-all;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+
