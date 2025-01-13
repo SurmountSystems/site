@@ -34,7 +34,6 @@
     <meta name="twitter:image" content="https://surmount.systems/logo.png" />
     <meta name="twitter:site" content="@SurmountSystems" />
     <meta name="twitter:creator" content="@SurmountSystems" />
-
   </head>
   <body>
     <header>
@@ -54,12 +53,13 @@
         <h3>Projects</h3>
         <p>
           Currently we're working on a BIP for a new quantum-resistant address
-          type called P2QRH, for use in a future soft fork called QuBit.
+          type called P2QRH (Pay to Quantum Resistant Hash), for use in a future
+          soft fork called QuBit.
         </p>
         <p class="center">
           <a
-            href="https://github.com/cryptoquick/bips/blob/p2qrh/bip-p2qrh.mediawiki"
-            >Draft BIP - QuBit - P2QRH</a
+            href="https://github.com/cryptoquick/bips/blob/p2qrh/bip-0360.mediawiki"
+            >BIP 360 - QuBit - Pay to Quantum Resistant Hash</a
           >
         </p>
         <p class="center">
@@ -79,52 +79,73 @@
       </section>
       <section id="support" class="section">
         <h3>Support Our Work</h3>
-        <p class="center">The Surmount Systems Foundation is a 501(c)(3) non-profit organization.</p>
-        <p class="center">We accept <a href="https://silentpayments.xyz">Silent Payments</a>:</p>
-        <p id="silent-payment" class="code">sp1qqveek65zqcz9xl44pjr65tzexlja7zn05kpe8rxxupr43lgtt6czgq6mm3vlgpwzap4f05854qkmqc2kaefl3e8dwcn24ykrrrck2vcspcfkk4kh</p>
-        <p class="center">We also accept <a href="https://bolt12.org/">BOLT-12</a> Lightning payments:</p>
-        <p id="bolt-12" class="code">lno1zrxq8pjw7qjlm68mtp7e3yvxee4y5xrgjhhyf2fxhlphpckrvevh50u0q2pmrtnrsk8qdhsad5fpxeqaa7zyea93kvuas6ycchu54mwpy0ux5qszx7e4hmyzv9cu8wp8rsuqgg860hnjyty84qp9eyyvq8pcr77nxjcqqveun7k49f74qm54fxxkln6s7tq970hhzpljsr7dvqjpdajc4f572qsk8xglxkg9jau9mys7xjyet536kcc7qvjmf0l4uver2a3trehyn58mz7d2rj0tjkvrg6k68cqxwcfd80crzqqsn54x9hkydqd9z2pu5a8u7zan4u</p>
-        <p class="center">Inquiries regarding donations, such as to request a receipt, should be sent via direct message to <a href="https://x.com/SurmountSystems">@SurmountsSystems on X.</a></p>
+        <p class="center">
+          The Surmount Systems Foundation is a 501(c)(3) non-profit
+          organization.
+        </p>
+        <p class="center">
+          We accept <a href="https://silentpayments.xyz">Silent Payments</a>:
+        </p>
+        <p id="silent-payment" class="code">
+          sp1qqveek65zqcz9xl44pjr65tzexlja7zn05kpe8rxxupr43lgtt6czgq6mm3vlgpwzap4f05854qkmqc2kaefl3e8dwcn24ykrrrck2vcspcfkk4kh
+        </p>
+        <p class="center">
+          We also accept <a href="https://bolt12.org/">BOLT-12</a> Lightning
+          payments:
+        </p>
+        <p id="bolt-12" class="code">
+          lno1zrxq8pjw7qjlm68mtp7e3yvxee4y5xrgjhhyf2fxhlphpckrvevh50u0q2pmrtnrsk8qdhsad5fpxeqaa7zyea93kvuas6ycchu54mwpy0ux5qszx7e4hmyzv9cu8wp8rsuqgg860hnjyty84qp9eyyvq8pcr77nxjcqqveun7k49f74qm54fxxkln6s7tq970hhzpljsr7dvqjpdajc4f572qsk8xglxkg9jau9mys7xjyet536kcc7qvjmf0l4uver2a3trehyn58mz7d2rj0tjkvrg6k68cqxwcfd80crzqqsn54x9hkydqd9z2pu5a8u7zan4u
+        </p>
+        <p class="center">
+          Inquiries regarding donations, such as to request a receipt, should be
+          sent via direct message to
+          <a href="https://x.com/SurmountSystems">@SurmountsSystems on X.</a>
+        </p>
       </section>
     </main>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-		    var elementIds = ["silent-payment", "bolt-12"];
-		    
-		    elementIds.forEach(function(id) {
-		        var element = document.getElementById(id);
-		        if (element) {
-		            element.addEventListener("click", function() {
-		                // Copy the content to the clipboard
-		                var textToCopy = element.textContent || element.innerText;
-		                navigator.clipboard.writeText(textToCopy).then(function() {
-		                    // Flash bright blue 2 times in 1 second, starting immediately
-		                    var originalBackground = element.style.backgroundColor || '';
-		                    var flashCount = 0;
-		                    var isBlue = true;
-		
-		                    // Set background to blue immediately
-		                    element.style.backgroundColor = 'blue';
-		
-		                    var flashInterval = setInterval(function() {
-		                        // Toggle background color between blue and original
-		                        element.style.backgroundColor = isBlue ? originalBackground : 'blue';
-		                        isBlue = !isBlue;
-		                        flashCount++;
-		
-		                        // Stop flashing after 4 toggles (2 flashes)
-		                        if (flashCount === 4) {
-		                            clearInterval(flashInterval);
-		                            element.style.backgroundColor = originalBackground;
-		                        }
-		                    }, 250); // Change color every 250ms
-		                }, function(err) {
-		                    console.error('Could not copy text: ', err);
-		                });
-		            });
-		        }
-		    });
-		});
-	</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elementIds = ["silent-payment", "bolt-12"];
+
+        elementIds.forEach(function (id) {
+          var element = document.getElementById(id);
+          if (element) {
+            element.addEventListener("click", function () {
+              // Copy the content to the clipboard
+              var textToCopy = element.textContent || element.innerText;
+              navigator.clipboard.writeText(textToCopy).then(
+                function () {
+                  // Flash bright blue 2 times in 1 second, starting immediately
+                  var originalBackground = element.style.backgroundColor || "";
+                  var flashCount = 0;
+                  var isBlue = true;
+
+                  // Set background to blue immediately
+                  element.style.backgroundColor = "blue";
+
+                  var flashInterval = setInterval(function () {
+                    // Toggle background color between blue and original
+                    element.style.backgroundColor = isBlue
+                      ? originalBackground
+                      : "blue";
+                    isBlue = !isBlue;
+                    flashCount++;
+
+                    // Stop flashing after 4 toggles (2 flashes)
+                    if (flashCount === 4) {
+                      clearInterval(flashInterval);
+                      element.style.backgroundColor = originalBackground;
+                    }
+                  }, 250); // Change color every 250ms
+                },
+                function (err) {
+                  console.error("Could not copy text: ", err);
+                }
+              );
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
