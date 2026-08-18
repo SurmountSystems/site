@@ -4,6 +4,10 @@
   accessed: 2026-08-14
 */
 
+@view-transition {
+  navigation: auto;
+}
+
 @font-face {
   font-family: "Cinzel";
   font-style: normal;
@@ -14,6 +18,7 @@
 
 html {
   background-color: #000000;
+  color-scheme: dark;
 }
 
 body {
@@ -136,6 +141,12 @@ h2 {
   color: #FFFF00;
 }
 
+h3 {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+}
+
 nav {
   margin-top: 1rem;
 }
@@ -173,6 +184,12 @@ a:hover {
 
 code.invoice {
   color: #00FF00;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+code.npub {
+  color: inherit;
   font-family: monospace;
   word-break: break-all;
 }
