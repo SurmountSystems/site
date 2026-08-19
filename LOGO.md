@@ -6,6 +6,8 @@ This is the standing description of the Surmount lockup. Draw it this way. Do no
 
 A large white plus on black. Geometric, sans-serif, even arms. It is a plus sign, not a crucifix: same weight both ways, no corpus, no flourish, no Latin-cross stretch.
 
+The plus is also the site's list mark and pairing sign. Use it between paired names and as the contact-list marker. Do not use a hyphen, a mid-dot, or a disc for those.
+
 ## The wordmark
 
 The visible word is SURMOUNT, all capitals. The face is Cinzel Regular, letterspaced. That cut is inscriptional Roman: church-facade and Vatican lettering in the Trajan tradition. When someone says "old-timey Catholic style letters," that is what they mean. It is not blackletter, not uncial, and not Cinzel Decorative.
@@ -24,13 +26,13 @@ The plus is the large object. SURMOUNT sits beneath it, smaller, with air betwee
 
 ## What it is not
 
-- The old Bitcoin-swirl logo
-- Gradients
-- Color variants of the lockup
-- Blackletter or uncial
-- A decorated crucifix
-- The legal phrase "Surmount Systems" as the visible word
-- A Google Fonts (or other third-party font) CDN
++ The old Bitcoin-swirl logo
++ Gradients
++ Color variants of the lockup
++ Blackletter or uncial
++ A decorated crucifix
++ The legal phrase "Surmount Systems" as the visible word
++ A Google Fonts (or other third-party font) CDN
 
 ## Favicon
 
