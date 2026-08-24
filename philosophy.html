@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="nav.js"></script>
     <title>Philosophy - Surmount Systems</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=8" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
     <meta property="og:title" content="Philosophy - Surmount Systems" />
@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://surmount.systems/philosophy.html" />
     <meta
       property="og:description"
-      content="At Surmount Systems, we are dedicated to pioneering advancements in quantum security for Bitcoin. Our initiative focuses on ensuring the integrity and security of the timechain in the quantum age."
+      content="Bitcoin is a direct challenge to nation-state monetary sovereignty + a voluntary check on central banker overreach. We want the demise of the dollar to be a joyous debt jubilee."
     />
     <meta property="og:site_name" content="Surmount Systems" />
 
@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Philosophy - Surmount Systems" />
     <meta
       name="twitter:description"
-      content="At Surmount Systems, we are dedicated to pioneering advancements in quantum security for Bitcoin. Our initiative focuses on ensuring the integrity and security of the timechain in the quantum age."
+      content="Bitcoin is a direct challenge to nation-state monetary sovereignty + a voluntary check on central banker overreach. We want the demise of the dollar to be a joyous debt jubilee."
     />
     <meta name="twitter:site" content="@SurmountSystems" />
     <meta name="twitter:creator" content="@SurmountSystems" />
@@ -35,29 +35,400 @@
           <span class="visually-hidden">Surmount Systems</span>
         </a>
       </h1>
-      <p class="tagline">Bitcoin Initiative for Quantum Security</p>
+      <p class="tagline">Bitcoin-focused Deep Tech</p>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li>
             <a href="philosophy.html" aria-current="page">Philosophy</a>
+            <ul>
+              <li><a href="faith.html">Faith</a></li>
+              <li><a href="vocabulary.html">Vocabulary</a></li>
+            </ul>
           </li>
-          <li><a href="contributors.html">Contributors</a></li>
-          <li><a href="support.html">Support</a></li>
+          <li>
+            <a href="projects.html">Projects</a>
+            <ul>
+              <li><a href="contributors.html">Contributors</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="support.html">Support</a>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </header>
     <main>
       <h2>Philosophy</h2>
       <p>
-        We recognize Bitcoin is a direct challenge to nation state monetary sovereignty. It is a check on central bankers. It is our best chance to reboot the monetary system on sound money.
+        This page is the company argument. The nested pages under it in the
+        header are
+        <a href="faith.html">Faith</a>
+        and
+        <a href="vocabulary.html">Vocabulary</a>.
+        Named software is on
+        <a href="projects.html">Projects</a>.
+      </p>
+
+      <h3 id="what-holy-lean-proves">What Holy Lean proves</h3>
+      <p>
+        The public copy is encoded in
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/HolyLean.lean">HolyLean.lean</a>,
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/DouayRheims.lean">DouayRheims.lean</a>,
+        and
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteConsistency.lean">SiteConsistency.lean</a>.
+        The header nav tree is encoded in
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteNav.lean">SiteNav.lean</a>:
+        the shared fragment and each public page's printed
+        <code>nav</code>,
+        with
+        <code>aria-current="page"</code>
+        on that page's link.
+        Public links, header and body, are encoded in
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteLinks.lean">SiteLinks.lean</a>:
+        every in-site
+        <code>href</code>
+        resolves to a public page, and every fragment id exists on the
+        target page.
+        Load-bearing words are defined on
+        <a href="vocabulary.html">Vocabulary</a>.
+        Quoted scripture is the
+        <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        (Douay 1609, Rheims 1582), not King James and not Challoner.
       </p>
       <p>
-        We see the demise of the dollar as a mathematical inevitability, no different than any other fiat currency that came before it. The dollar as we know it has only been that way since 1971. The global monetary order is broken. The only sensible solution is to build a voluntary shadow economic system that accelerates the inevitable. The demise of the dollar doesn't have to be a moment marked by chaos and violence. It can be a joyous moment, a debt jubilee. Bitcoin is the natural choice, but it's not without its flaws.
+        What is proven, by
+        <code>rfl</code>
+        on structure fields, with no
+        <code>sorry</code>
+        and no custom
+        <code>axiom</code>:
+      </p>
+      <ul>
+        <li>
+          <code>site_claims_consistent</code>
+          and
+          <code>site_claims_inhabited</code>:
+          the encoded claims inhabit a well-formed model. They do not
+          contradict (<code>P ∧ ¬P</code>).
+        </li>
+        <li>
+          Printed Douay-Rheims strings on the site equal the source strings
+          in
+          <code>bible/raw</code>.
+        </li>
+        <li>
+          <code>biblical_jubilee_is_distinct_from_1971_reading</code>
+          and
+          <code>nineteen_seventy_one_is_site_historical_reading_not_douay</code>:
+          Leviticus 25 is not a dating of the dollar.
+        </li>
+        <li>
+          <code>protection_philosophy_if_protected_then_endure</code>
+          is a printed company claim. Companion theorems
+          <code>lean_does_not_prove_we_will_endure</code>
+          and
+          <code>lean_does_not_prove_bitcoin_will_win</code>
+          are also in the model.
+        </li>
+        <li>
+          <code>site_nav_consistent</code>
+          and the page-nav equalities in
+          <code>SiteNav.lean</code>:
+          the encoded header matches
+          <code>shared/nav.html</code>
+          and each public page's
+          <code>nav</code>.
+          That is the information architecture, not a vocabulary sentence.
+        </li>
+        <li>
+          <code>site_links_consistent</code>
+          in
+          <code>SiteLinks.lean</code>:
+          every in-site
+          <code>href</code>
+          on the public pages resolves, and every fragment id exists on
+          the target page. That is not a live HTTP check.
+        </li>
+      </ul>
+      <p>
+        What is not proven: that God exists, that
+        <a href="vocabulary.html#theism">theism</a>
+        is scientifically proven, that
+        <a href="vocabulary.html#atheism">atheism</a>
+        is scientifically proven, that Bitcoin will win, or that Surmount
+        will endure in the world. Lean here is consistency of the public
+        copy, not a proof of God.
+      </p>
+
+      <ol>
+        <li>
+          <a href="#bitcoin-and-monetary-sovereignty">Bitcoin and monetary sovereignty</a>
+        </li>
+        <li>
+          <a href="#first-option-versus-hyperinflation">First option versus hyperinflation</a>
+        </li>
+        <li>
+          <a href="#fiat-1971-and-debt-jubilee">Fiat, 1971, and debt jubilee</a>
+        </li>
+        <li>
+          <a href="#honest-weights-and-measures">Honest weights and measures</a>
+        </li>
+        <li><a href="#natural-law">Natural law</a></li>
+        <li><a href="#voluntary-system">Voluntary system</a></li>
+        <li>
+          <a href="#protection-and-the-os-we-aim-to-build">Protection and the OS we aim to build</a>
+        </li>
+        <li><a href="#foundation">Foundation</a></li>
+      </ol>
+
+      <h3 id="bitcoin-and-monetary-sovereignty">Bitcoin and monetary sovereignty</h3>
+      <p>
+        <a href="vocabulary.html#bitcoin">Bitcoin</a>
+        is a direct challenge to nation-state monetary sovereignty
+        + a voluntary check on central banker overreach.
       </p>
       <p>
-        We must do the work to make it more secure, more private, more scalable, and work for us.
+        That names
+        <a href="https://grokipedia.com/page/Bitcoin">Bitcoin</a>
+        as a peer-to-peer electronic cash system:
+        <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>
+        (Satoshi Nakamoto). A
+        <a href="https://grokipedia.com/page/Central_bank">central bank</a>
+        is the institution that issues currency and conducts monetary policy.
       </p>
+
+      <h3 id="first-option-versus-hyperinflation">First option versus hyperinflation</h3>
+      <p>
+        If we want to avoid the violence and bloodshed typical of
+        <a href="https://grokipedia.com/page/Hyperinflation">hyperinflation</a>,
+        Bitcoin must be the first option.
+      </p>
+      <p>
+        That is a company claim, encoded as
+        <code>bitcoinFirstOptionVsHyperinflationViolence</code>.
+        It is not a proof that Bitcoin will win
+        (<code>lean_does_not_prove_bitcoin_will_win</code>).
+        Hyperinflation is a collapse of a currency's purchasing power;
+        historical cases are named on that Grokipedia page, not invented here.
+      </p>
+
+      <h3 id="fiat-1971-and-debt-jubilee">Fiat, 1971, and debt jubilee</h3>
+      <p>
+        The dollar as we know it has only been that way since 1971.
+        <a href="vocabulary.html#fiat">Fiat</a>
+        systems end as those before them ended.
+        We may now have the technology to learn from history.
+        We want the demise of the dollar to be a joyous debt
+        <a href="vocabulary.html#jubilee">jubilee</a>,
+        not chaos. Debt jubilees every fifty years should return as a
+        matter of course.
+      </p>
+      <p>
+        That 1971 sentence is a site historical reading of the
+        <a href="https://grokipedia.com/page/Nixon_shock">Nixon shock</a>
+        and the end of dollar convertibility into gold. It is not a
+        Douay-Rheims quotation, and it is not a claim that Leviticus dates
+        the dollar.
+        <a href="https://grokipedia.com/page/Fiat_money">Fiat money</a>
+        is government-issued money not convertible to a commodity.
+        The
+        <a href="https://grokipedia.com/page/Bretton_Woods_system">Bretton Woods system</a>
+        and the
+        <a href="https://grokipedia.com/page/Gold_standard">gold standard</a>
+        are the monetary order that reading names.
+        See also
+        <a href="https://history.state.gov/milestones/1969-1976/nixon-shock">Nixon and the End of the Bretton Woods System, 1971</a>
+        (Office of the Historian) and
+        <a href="https://www.federalreservehistory.org/essays/gold-convertibility-ends">Gold Convertibility Ends (August 1971)</a>
+        (Federal Reserve History).
+      </p>
+      <p>
+        The biblical
+        <a href="https://grokipedia.com/page/Jubilee">jubilee</a>
+        is Leviticus 25: the fiftieth year, remission, and return to
+        possession. That law is distinct from the 1971 historical reading.
+        A
+        <a href="https://grokipedia.com/page/Debt_jubilee">debt jubilee</a>
+        is the broader name for ancient and later debt cancellation.
+        Quoted scripture on this page is Original Douay-Rheims, not an
+        encyclopedia paraphrase.
+      </p>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Thou shalt number thee also seven weeks of years, that is to say,
+          seven times seven, which together make forty-nine, years:
+        </p>
+        <footer>
+          Leviticus 25:8,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Thou shalt sanctify the fiftieth year, and shalt proclaim remission
+          to all the inhabitants of thy land: for it is the year of Jubilee.
+          Every man shall return to his possession, &amp; every one shall go
+          back to his old family:
+        </p>
+        <footer>
+          Leviticus 25:10,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          In the year of Jubilee all shall return to their possessions.
+        </p>
+        <footer>
+          Leviticus 25:13,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+
+      <h3 id="honest-weights-and-measures">Honest weights and measures</h3>
+      <p>
+        Surmount Systems is founded on Christian principles,
+        including
+        <a href="vocabulary.html#honest-weights-and-measures">honest weights and measures</a>.
+      </p>
+      <p>
+        The words we print are Leviticus 19:35-36, Deuteronomy 25:13-15, and
+        Proverbs 11:1. There is no dedicated encyclopedia article for that
+        phrase. These are printed verses, not a one-verse vocabulary warrant.
+      </p>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Do not any unjust thing in judgment, in rule, in weight, or measure.
+        </p>
+        <footer>
+          Leviticus 19:35,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Let the balance be just, and the weights equal, the bushel just, and
+          the sextary equal. I the Lord your God, that brought you out of the
+          Land of Ægypt.
+        </p>
+        <footer>
+          Leviticus 19:36,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Thou shalt not have diverse weights in thy bag, a greater and a less:
+        </p>
+        <footer>
+          Deuteronomy 25:13,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          neither shall there be in thy house a greater bushel and a less.
+        </p>
+        <footer>
+          Deuteronomy 25:14,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Thou shalt have a weight just and true, and thy bushel shall be equal
+          and true: that thou mayest live a long time upon the Land, which our
+          Lord thy God shall give thee.
+        </p>
+        <footer>
+          Deuteronomy 25:15,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+      <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
+        <p>
+          Adeceitful balance, is abomination before God: and an equal weight is
+          his will.
+        </p>
+        <footer>
+          Proverbs 11:1,
+          <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        </footer>
+      </blockquote>
+
+      <p><a href="faith.html">Our statement on faith.</a></p>
+
+      <h3 id="natural-law">Natural law</h3>
+      <p>
+        We work toward a hardened, defensible monetary system,
+        built on
+        <a href="vocabulary.html#natural-law">natural law</a>.
+        On this site
+        <a href="vocabulary.html#science">science</a>
+        is natural philosophy: look at nature without flinching, and keep
+        claims inside
+        <a href="vocabulary.html#scientific-method">the scientific method</a>.
+        Applied mathematics + cryptography are emergent properties of nature.
+        They are extrajudicial.
+      </p>
+      <p>
+        The encyclopedia entry we cite is
+        <a href="https://grokipedia.com/page/Natural_law">natural law</a>.
+        We do not print Aquinas quotations here. The encoded fields are
+        <code>naturalLawMoney</code>,
+        <code>appliedMathAndCryptoEmergentFromNature</code>,
+        and
+        <code>appliedMathAndCryptoExtrajudicial</code>.
+      </p>
+
+      <h3 id="voluntary-system">Voluntary system</h3>
+      <p>
+        We hold that a voluntary system is the fitting solution.
+        <a href="vocabulary.html#bitcoin">Bitcoin</a>
+        is the natural choice, and it still has flaws.
+        We must make it more secure + more private + more scalable
+        + work for us.
+      </p>
+      <p>
+        That restates the peer-to-peer cash design in
+        <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>
+        and the
+        <a href="https://grokipedia.com/page/Bitcoin">Bitcoin</a>
+        article: no trusted third party as the monetary base.
+        The encoded fields include
+        <code>bitcoinIsNaturalChoice</code>
+        and
+        <code>bitcoinHasFlaws</code>.
+        Flaws remaining is why the work on
+        <a href="projects.html">Projects</a>
+        exists.
+      </p>
+
+      <h3 id="protection-and-the-os-we-aim-to-build">Protection and the OS we aim to build</h3>
+      <p>
+        If our contributors and friends and loved ones are most protected
+        against all conceivable threats to the things they value, we will
+        <a href="vocabulary.html#endure">endure</a>
+        where others fail.
+        That is one of the most important company philosophies.
+        The OS we aim to build is the most absurdly paranoid and hardened
+        OS that is still computationally efficient.
+      </p>
+      <p>
+        <a href="https://github.com/SurmountSystems/grok-oss">Grok OSS</a>
+        is a harness. It is
+        <a href="vocabulary.html#grok-oss">not yet an operating system</a>.
+        It will help us bootstrap a
+        <a href="vocabulary.html#provably-perfect">provably perfect</a>
+        OS (best we can, despite everything): that same paranoid and
+        hardened OS that is still computationally efficient.
+      </p>
+
+      <h3 id="foundation">Foundation</h3>
       <p>
         The Surmount Systems Foundation is a 501(c)(3) non-profit organization. You can support our work on <a href="support.html">this page</a>.
       </p>

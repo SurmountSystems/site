@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.2" baseProfile="tiny-ps"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512" width="512" height="512">
+  <title>Surmount Systems</title>
+  <desc>White plus on black, the Surmount mark.</desc>
+  <rect width="512" height="512" fill="#000000"/>
+  <rect x="208" y="64" width="96" height="384" fill="#FFFFFF"/>
+  <rect x="64" y="208" width="384" height="96" fill="#FFFFFF"/>
+</svg>

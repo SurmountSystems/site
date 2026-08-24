@@ -1,0 +1,6 @@
+[submodule "lean4-skills"]
+	path = lean4-skills
+	url = git@github.com:SurmountSystems/lean4-skills.git
+[submodule "original-douay-rheims"]
+	path = original-douay-rheims
+	url = git@github.com:cryptoquick/original-douay-rheims.git

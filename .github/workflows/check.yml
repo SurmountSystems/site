@@ -1,0 +1,20 @@
+# Full quality gate: the same `just check` as local (nav-ssg, then Lean).
+# `just check` is `nix run --max-jobs 0 --cores 64 path:.#check`, then
+# `nix build --max-jobs 0 --cores 64 --print-build-logs path:.?dir=lean`.
+# Lean also uses `requiredSystemFeatures` (`big-parallel`, `surmount-remote`).
+# The runner needs the same Nix remote builder as local `just check`.
+# Do not skip Lean.
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - uses: extractions/setup-just@v3
+      - run: just check

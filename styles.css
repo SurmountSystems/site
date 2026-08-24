@@ -147,30 +147,82 @@ h3 {
   margin-top: 2rem;
 }
 
+h2[id],
+h3[id] {
+  scroll-margin-top: 1rem;
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 0.25rem solid #FFFF00;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote footer {
+  display: block;
+  margin-top: 0.5rem;
+}
+
 nav {
   margin-top: 1rem;
 }
-
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-nav li {
-  display: inline;
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  row-gap: 0.75rem;
 }
-
-nav li:not(:last-child)::after {
-  content: "+";
-  color: #FFFFFF;
-  margin-left: 0.7rem;
-  margin-right: 0.7rem;
+/* Lift top-level links into one flex row. Nested lists can then take a full-width second row. */
+nav > ul > li {
+  display: contents;
+}
+nav > ul > li > a {
+  text-underline-offset: 0.2em;
+}
+/* Hidden unless this section is current. In-flow second row, not a popup. */
+nav ul ul {
+  display: none;
+  flex-basis: 100%;
+  order: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+  padding: 0;
+  border: none;
+  position: static;
+  background: transparent;
+}
+nav > ul > li:has([aria-current="page"]) > ul {
+  display: flex;
 }
 
 main ul {
   list-style-type: "+";
   padding-left: 1.25rem;
+}
+
+main ul li::marker {
+  color: #FFFFFF;
+}
+
+main ol {
+  padding-left: 1.25rem;
+}
+
+main ol li::marker {
+  color: #FFFFFF;
 }
 
 a {
@@ -185,11 +237,21 @@ a:hover {
   color: #FFFF00;
 }
 
+a[href^="http://"]::after,
+a[href^="https://"]::after {
+  content: " ↗";
+  font-size: smaller;
+}
+
 [aria-current="page"],
 [aria-current="page"]:visited,
 [aria-current="page"]:hover {
   color: #FFFFFF;
   text-decoration: none;
+}
+
+code {
+  font-family: monospace;
 }
 
 code.invoice {

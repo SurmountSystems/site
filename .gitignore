@@ -1,2 +1,6 @@
 # Agent home is local to this checkout. Do not commit process notes or reports.
 .agents/
+result
+.direnv
+nav-ssg/target/
+

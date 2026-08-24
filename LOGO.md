@@ -6,7 +6,7 @@ This is the standing description of the Surmount lockup. Draw it this way. Do no
 
 A large white plus on black. Geometric, sans-serif, even arms. It is a plus sign, not a crucifix: same weight both ways, no corpus, no flourish, no Latin-cross stretch.
 
-The plus is also the site's list mark and pairing sign. Use it between paired names and as the contact-list marker. Do not use a hyphen, a mid-dot, or a disc for those.
+The plus is also the site's list mark and pairing sign. Use it between paired names and as the contact-list marker. It also marks pairing, joy, and adding truths together. It is still not a crucifix. Do not use a hyphen, a mid-dot, or a disc for those.
 
 ## The wordmark
 

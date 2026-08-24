@@ -1,0 +1,28 @@
+name = "siteConsistency"
+version = "0.1.0"
+defaultTargets = [
+  "DouayRheims",
+  "HolyLean",
+  "SiteConsistency",
+  "SiteNav",
+  "SiteLinks",
+  "Grokipedia",
+]
+
+[[lean_lib]]
+name = "DouayRheims"
+
+[[lean_lib]]
+name = "HolyLean"
+
+[[lean_lib]]
+name = "SiteConsistency"
+
+[[lean_lib]]
+name = "SiteNav"
+
+[[lean_lib]]
+name = "SiteLinks"
+
+[[lean_lib]]
+name = "Grokipedia"
