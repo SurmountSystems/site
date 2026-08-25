@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://surmount.systems/projects.html" />
     <meta
       property="og:description"
-      content="Projects from Surmount Systems: BIP 360, Grok OSS, libbitcoinpqc, and Systems Lean."
+      content="Named software from Surmount Systems: BIP 360, Grok OSS, libbitcoinpqc, Systems Lean."
     />
     <meta property="og:site_name" content="Surmount Systems" />
 
@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Projects - Surmount Systems" />
     <meta
       name="twitter:description"
-      content="Projects from Surmount Systems: BIP 360, Grok OSS, libbitcoinpqc, and Systems Lean."
+      content="Named software from Surmount Systems: BIP 360, Grok OSS, libbitcoinpqc, Systems Lean."
     />
     <meta name="twitter:site" content="@SurmountSystems" />
     <meta name="twitter:creator" content="@SurmountSystems" />
@@ -63,6 +63,27 @@
     </header>
     <main>
       <h2>Projects</h2>
+      <p>
+        These are the named software projects. They serve the aims on
+        <a href="philosophy.html">Philosophy</a>.
+        People who ship with us are on
+        <a href="contributors.html">Contributors</a>.
+      </p>
+      <p id="grok-oss">
+        <a href="https://github.com/SurmountSystems/grok-oss">Grok OSS</a>,
+        an open source Grok Build fork that accepts pull requests.
+        It is a userspace harness that will help us bootstrap a
+        <a href="vocabulary.html#provably-perfect">provably perfect</a>
+        <a href="vocabulary.html#operating-system">OS</a>
+        (best we can, despite everything): the most absurdly paranoid
+        and hardened OS that is still computationally efficient.
+        See
+        <a href="vocabulary.html#grok-oss">Grok OSS</a>.
+      </p>
+      <p id="systems-lean">
+        <a href="https://github.com/cryptoquick/systems-lean">Systems Lean</a>,
+        Lean 4 with linear types for systems programming.
+      </p>
       <p id="bip-360">
         <a href="https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki">BIP 360</a>
         +
@@ -71,18 +92,7 @@
         <a href="vocabulary.html#post-quantum-cryptography">post-quantum</a>
         output type (P2MR).
         That is cryptography meant to remain sound if large quantum computers
-        exist. It is not a quantum computer.
-      </p>
-      <p id="grok-oss">
-        <a href="https://github.com/SurmountSystems/grok-oss">Grok OSS</a>,
-        an open source Grok Build fork that accepts pull requests.
-        It is a harness.
-        It is
-        <a href="vocabulary.html#grok-oss">not yet an operating system</a>.
-        It will help us bootstrap a
-        <a href="vocabulary.html#provably-perfect">provably perfect</a>
-        OS (best we can, despite everything): the most absurdly paranoid
-        and hardened OS that is still computationally efficient.
+        exist.
       </p>
       <p id="libbitcoinpqc">
         <a href="https://github.com/cryptoquick/libbitcoinpqc">libbitcoinpqc</a>
@@ -91,24 +101,12 @@
         a
         <a href="vocabulary.html#post-quantum-cryptography">post-quantum cryptography</a>
         library for Bitcoin signatures; bindings by Jeff Bride.
-        It is not a quantum computer.
       </p>
-      <p>
-        <a href="vocabulary.html#post-quantum-cryptography">Post-quantum cryptography</a>
-        is not
-        <a href="vocabulary.html#quantum-computing">quantum computing</a>.
-        BIP 360 and libbitcoinpqc are not optical computers, neuromorphic
-        in-memory computers, or quantum computers.
-      </p>
-      <p id="systems-lean">
-        <a href="https://github.com/cryptoquick/systems-lean">Systems Lean</a>,
-        Lean 4 with linear types for systems programming.
-      </p>
-      <p>
-        People who ship with us are on
-        <a href="contributors.html">Contributors</a>.
-        The aims those projects serve are on
-        <a href="philosophy.html">Philosophy</a>.
+      <p id="holy-lean">
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/HolyLean.lean">Holy Lean</a>
+        encodes this site's vocabulary and the consistency of the public copy.
+        What it checks is
+        <a href="philosophy.html#what-holy-lean-proves">at the end of Philosophy</a>.
       </p>
     </main>
   </body>

@@ -64,104 +64,24 @@
     <main>
       <h2>Philosophy</h2>
       <p>
-        This page is the company argument. The nested pages under it in the
-        header are
+        Surmount exists because dishonest money is a real harm. We argue for a
+        voluntary,
+        <a href="vocabulary.html#bitcoin">Bitcoin</a>-first path so the end of
+        the dollar can be a joyous debt
+        <a href="vocabulary.html#jubilee">jubilee</a>
+        instead of hyperinflation and bloodshed. That is the company
+        philosophy we will stand behind.
+      </p>
+      <p>
+        Read the argument first. The last section says what
+        <a href="#what-holy-lean-proves">Holy Lean</a>
+        checks on this public copy. For the words and
+        the moral framework, go deeper on
         <a href="faith.html">Faith</a>
         and
         <a href="vocabulary.html">Vocabulary</a>.
         Named software is on
         <a href="projects.html">Projects</a>.
-      </p>
-
-      <h3 id="what-holy-lean-proves">What Holy Lean proves</h3>
-      <p>
-        The public copy is encoded in
-        <a href="https://github.com/SurmountSystems/site/blob/main/lean/HolyLean.lean">HolyLean.lean</a>,
-        <a href="https://github.com/SurmountSystems/site/blob/main/lean/DouayRheims.lean">DouayRheims.lean</a>,
-        and
-        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteConsistency.lean">SiteConsistency.lean</a>.
-        The header nav tree is encoded in
-        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteNav.lean">SiteNav.lean</a>:
-        the shared fragment and each public page's printed
-        <code>nav</code>,
-        with
-        <code>aria-current="page"</code>
-        on that page's link.
-        Public links, header and body, are encoded in
-        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteLinks.lean">SiteLinks.lean</a>:
-        every in-site
-        <code>href</code>
-        resolves to a public page, and every fragment id exists on the
-        target page.
-        Load-bearing words are defined on
-        <a href="vocabulary.html">Vocabulary</a>.
-        Quoted scripture is the
-        <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
-        (Douay 1609, Rheims 1582), not King James and not Challoner.
-      </p>
-      <p>
-        What is proven, by
-        <code>rfl</code>
-        on structure fields, with no
-        <code>sorry</code>
-        and no custom
-        <code>axiom</code>:
-      </p>
-      <ul>
-        <li>
-          <code>site_claims_consistent</code>
-          and
-          <code>site_claims_inhabited</code>:
-          the encoded claims inhabit a well-formed model. They do not
-          contradict (<code>P ∧ ¬P</code>).
-        </li>
-        <li>
-          Printed Douay-Rheims strings on the site equal the source strings
-          in
-          <code>bible/raw</code>.
-        </li>
-        <li>
-          <code>biblical_jubilee_is_distinct_from_1971_reading</code>
-          and
-          <code>nineteen_seventy_one_is_site_historical_reading_not_douay</code>:
-          Leviticus 25 is not a dating of the dollar.
-        </li>
-        <li>
-          <code>protection_philosophy_if_protected_then_endure</code>
-          is a printed company claim. Companion theorems
-          <code>lean_does_not_prove_we_will_endure</code>
-          and
-          <code>lean_does_not_prove_bitcoin_will_win</code>
-          are also in the model.
-        </li>
-        <li>
-          <code>site_nav_consistent</code>
-          and the page-nav equalities in
-          <code>SiteNav.lean</code>:
-          the encoded header matches
-          <code>shared/nav.html</code>
-          and each public page's
-          <code>nav</code>.
-          That is the information architecture, not a vocabulary sentence.
-        </li>
-        <li>
-          <code>site_links_consistent</code>
-          in
-          <code>SiteLinks.lean</code>:
-          every in-site
-          <code>href</code>
-          on the public pages resolves, and every fragment id exists on
-          the target page. That is not a live HTTP check.
-        </li>
-      </ul>
-      <p>
-        What is not proven: that God exists, that
-        <a href="vocabulary.html#theism">theism</a>
-        is scientifically proven, that
-        <a href="vocabulary.html#atheism">atheism</a>
-        is scientifically proven, that Bitcoin will win, or that Surmount
-        will endure in the world. Lean here is consistency of the public
-        copy, not a proof of God.
       </p>
 
       <ol>
@@ -183,6 +103,9 @@
           <a href="#protection-and-the-os-we-aim-to-build">Protection and the OS we aim to build</a>
         </li>
         <li><a href="#foundation">Foundation</a></li>
+        <li>
+          <a href="#what-holy-lean-proves">What Holy Lean checks</a>
+        </li>
       </ol>
 
       <h3 id="bitcoin-and-monetary-sovereignty">Bitcoin and monetary sovereignty</h3>
@@ -192,9 +115,9 @@
         + a voluntary check on central banker overreach.
       </p>
       <p>
-        That names
-        <a href="https://grokipedia.com/page/Bitcoin">Bitcoin</a>
-        as a peer-to-peer electronic cash system:
+        Bitcoin is a peer-to-peer electronic cash system, named on
+        <a href="https://grokipedia.com/page/Bitcoin">Grokipedia Bitcoin</a>
+        and in
         <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>
         (Satoshi Nakamoto). A
         <a href="https://grokipedia.com/page/Central_bank">central bank</a>
@@ -208,10 +131,7 @@
         Bitcoin must be the first option.
       </p>
       <p>
-        That is a company claim, encoded as
-        <code>bitcoinFirstOptionVsHyperinflationViolence</code>.
-        It is not a proof that Bitcoin will win
-        (<code>lean_does_not_prove_bitcoin_will_win</code>).
+        That is a company claim about how we want the transition to go.
         Hyperinflation is a collapse of a currency's purchasing power;
         historical cases are named on that Grokipedia page, not invented here.
       </p>
@@ -228,11 +148,10 @@
         matter of course.
       </p>
       <p>
-        That 1971 sentence is a site historical reading of the
+        That 1971 sentence is our historical reading of the
         <a href="https://grokipedia.com/page/Nixon_shock">Nixon shock</a>
-        and the end of dollar convertibility into gold. It is not a
-        Douay-Rheims quotation, and it is not a claim that Leviticus dates
-        the dollar.
+        and the end of dollar convertibility into gold: monetary history on
+        this page, separate from the Leviticus 25 verses printed below.
         <a href="https://grokipedia.com/page/Fiat_money">Fiat money</a>
         is government-issued money not convertible to a commodity.
         The
@@ -249,8 +168,9 @@
       <p>
         The biblical
         <a href="https://grokipedia.com/page/Jubilee">jubilee</a>
-        is Leviticus 25: the fiftieth year, remission, and return to
-        possession. That law is distinct from the 1971 historical reading.
+        is Leviticus 25: the fiftieth year of Jubilee, when remission is
+        proclaimed and every man returns to his possession. That law is
+        distinct from the 1971 historical reading.
         A
         <a href="https://grokipedia.com/page/Debt_jubilee">debt jubilee</a>
         is the broader name for ancient and later debt cancellation.
@@ -298,7 +218,11 @@
       <p>
         The words we print are Leviticus 19:35-36, Deuteronomy 25:13-15, and
         Proverbs 11:1. There is no dedicated encyclopedia article for that
-        phrase. These are printed verses, not a one-verse vocabulary warrant.
+        phrase. These are printed framework verses, quoted in full. The
+        one-citation vocabulary warrants are only
+        <a href="vocabulary.html#false-witness">false testimony</a>,
+        <a href="vocabulary.html#peace-makers">peace-makers</a>, and
+        <a href="vocabulary.html#cherubins">Cherubins</a>.
       </p>
       <blockquote cite="https://github.com/cryptoquick/original-douay-rheims">
         <p>
@@ -378,11 +302,6 @@
       <p>
         The encyclopedia entry we cite is
         <a href="https://grokipedia.com/page/Natural_law">natural law</a>.
-        We do not print Aquinas quotations here. The encoded fields are
-        <code>naturalLawMoney</code>,
-        <code>appliedMathAndCryptoEmergentFromNature</code>,
-        and
-        <code>appliedMathAndCryptoExtrajudicial</code>.
       </p>
 
       <h3 id="voluntary-system">Voluntary system</h3>
@@ -399,10 +318,6 @@
         and the
         <a href="https://grokipedia.com/page/Bitcoin">Bitcoin</a>
         article: no trusted third party as the monetary base.
-        The encoded fields include
-        <code>bitcoinIsNaturalChoice</code>
-        and
-        <code>bitcoinHasFlaws</code>.
         Flaws remaining is why the work on
         <a href="projects.html">Projects</a>
         exists.
@@ -415,22 +330,134 @@
         <a href="vocabulary.html#endure">endure</a>
         where others fail.
         That is one of the most important company philosophies.
-        The OS we aim to build is the most absurdly paranoid and hardened
-        OS that is still computationally efficient.
+        The
+        <a href="vocabulary.html#operating-system">OS</a>
+        we aim to build is the most absurdly paranoid and hardened OS that is
+        still computationally efficient.
       </p>
       <p>
         <a href="https://github.com/SurmountSystems/grok-oss">Grok OSS</a>
-        is a harness. It is
-        <a href="vocabulary.html#grok-oss">not yet an operating system</a>.
-        It will help us bootstrap a
+        is a userspace harness that will help us bootstrap a
         <a href="vocabulary.html#provably-perfect">provably perfect</a>
-        OS (best we can, despite everything): that same paranoid and
+        <a href="vocabulary.html#operating-system">OS</a>
+        (best we can, despite everything): that same paranoid and
         hardened OS that is still computationally efficient.
+        See
+        <a href="vocabulary.html#grok-oss">Grok OSS</a>.
       </p>
 
       <h3 id="foundation">Foundation</h3>
       <p>
         The Surmount Systems Foundation is a 501(c)(3) non-profit organization. You can support our work on <a href="support.html">this page</a>.
+      </p>
+
+      <h3 id="what-holy-lean-proves">What Holy Lean checks</h3>
+      <p>
+        After the argument, here is what Holy Lean checks on this
+        public copy.
+      </p>
+      <p>
+        The public copy is encoded in
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/HolyLean.lean">HolyLean.lean</a>,
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/DouayRheims.lean">DouayRheims.lean</a>,
+        and
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteConsistency.lean">SiteConsistency.lean</a>.
+        The header nav tree is encoded in
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteNav.lean">SiteNav.lean</a>:
+        the shared fragment and each public page's printed
+        <code>nav</code>,
+        with
+        <code>aria-current="page"</code>
+        on that page's link.
+        Public links, header and body, are encoded in
+        <a href="https://github.com/SurmountSystems/site/blob/main/lean/SiteLinks.lean">SiteLinks.lean</a>:
+        every in-site
+        <code>href</code>
+        resolves to a public page, and every fragment id exists on the
+        target page.
+        Load-bearing words are defined on
+        <a href="vocabulary.html">Vocabulary</a>.
+        Quoted scripture is the
+        <a href="https://github.com/cryptoquick/original-douay-rheims">Original Douay-Rheims</a>
+        (Douay 1609, Rheims 1582).
+      </p>
+      <p>
+        What the model checks, by
+        <code>rfl</code>
+        on structure fields, with no
+        <code>sorry</code>
+        and no custom
+        <code>axiom</code>:
+      </p>
+      <ul>
+        <li>
+          <code>site_claims_consistent</code>
+          and
+          <code>site_claims_inhabited</code>:
+          the encoded claims inhabit a well-formed model. They do not
+          contradict (<code>P ∧ ¬P</code>).
+        </li>
+        <li>
+          Printed Douay-Rheims strings on the site equal the source strings
+          in
+          <code>bible/raw</code>.
+        </li>
+        <li>
+          <code>biblical_jubilee_is_distinct_from_1971_reading</code>
+          and
+          <code>nineteen_seventy_one_is_site_historical_reading_not_douay</code>:
+          Leviticus 25 is the biblical jubilee law; the 1971 sentence is a
+          separate historical reading of the dollar.
+        </li>
+        <li>
+          <code>protection_philosophy_if_protected_then_endure</code>
+          is a printed company claim. Companion theorems
+          <code>lean_does_not_prove_we_will_endure</code>
+          and
+          <code>lean_does_not_prove_bitcoin_will_win</code>
+          are also in the model.
+        </li>
+        <li>
+          Company claims on this page are also encoded as structure fields,
+          including
+          <code>bitcoinFirstOptionVsHyperinflationViolence</code>,
+          <code>naturalLawMoney</code>,
+          <code>appliedMathAndCryptoEmergentFromNature</code>,
+          <code>appliedMathAndCryptoExtrajudicial</code>,
+          <code>bitcoinIsNaturalChoice</code>,
+          and
+          <code>bitcoinHasFlaws</code>.
+          Those names are fields in the encoded model of this page.
+        </li>
+        <li>
+          <code>site_nav_consistent</code>
+          and the page-nav equalities in
+          <code>SiteNav.lean</code>:
+          the encoded header matches
+          <code>shared/nav.html</code>
+          and each public page's
+          <code>nav</code>.
+          The top row is Home, Philosophy, Projects, and Support. Child
+          links appear as a second row only on pages in that section.
+        </li>
+        <li>
+          <code>site_links_consistent</code>
+          in
+          <code>SiteLinks.lean</code>:
+          every in-site
+          <code>href</code>
+          on the public pages resolves, and every fragment id exists on
+          the target page. The theorem is about printed markup, not a live
+          fetch.
+        </li>
+      </ul>
+      <p>
+        The model does not include a theorem that God exists, that
+        <a href="vocabulary.html#theism">theism</a>
+        is scientifically proven, that
+        <a href="vocabulary.html#atheism">atheism</a>
+        is scientifically proven, that Bitcoin will win, or that Surmount
+        will endure in the world.
       </p>
     </main>
   </body>

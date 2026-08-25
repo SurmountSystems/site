@@ -73,6 +73,7 @@ structure Ecumenism where
 
 /-- Bitcoin, as named on Philosophy. -/
 structure Bitcoin where
+  isPeerToPeerElectronicCash : Bool
   challengesNationStateMonetarySovereignty : Bool
   voluntaryCheckOnCentralBankerOverreach : Bool
   firstOptionVsHyperinflationViolence : Bool
@@ -82,6 +83,7 @@ structure Bitcoin where
 
 /-- Fiat money as named on Philosophy. 1971 is site history, not a Douay quote. -/
 structure Fiat where
+  isGovernmentIssuedMoneyNotConvertibleToCommodity : Bool
   dollarAsWeKnowItSince1971 : Bool
   systemsEndAsPredecessorsEnded : Bool
   nineteenSeventyOneIsSiteHistoricalReadingNotDouayQuote : Bool
@@ -100,6 +102,7 @@ structure Jubilee where
 
 /-- Natural law, as named on Philosophy. -/
 structure NaturalLaw where
+  isUniversalPrinciplesDiscernibleByReason : Bool
   hardenedMoneyBuiltOnIt : Bool
   appliedMathAndCryptoEmergentFromNature : Bool
   appliedMathAndCryptoExtrajudicial : Bool
@@ -151,8 +154,20 @@ structure LeanScope where
   leanDoesNotProveBitcoinWillWin : Bool
   deriving Repr
 
+/--
+  An operating system is privileged kernel software. On x86 that is ring 0.
+  A userspace harness is not that.
+-/
+structure OperatingSystem where
+  kernelRunsAtHighestCpuPrivilege : Bool
+  onX86ThatIsRing0 : Bool
+  ownsHardwareMemoryProcessesAndIo : Bool
+  userspaceHarnessIsNotThat : Bool
+  deriving Repr
+
 /-- Grok OSS is a harness. It is not yet an operating system. -/
 structure GrokOss where
+  isHarness : Bool
   isNotYetOperatingSystem : Bool
   helpsBootstrapFutureOs : Bool
   deriving Repr
@@ -163,12 +178,30 @@ structure PostQuantumCryptography where
   isNotQuantumComputing : Bool
   bip360IsProposedPqcNotAQuantumComputer : Bool
   libbitcoinpqcIsNotAQuantumComputer : Bool
+  isNotOpticalCompute : Bool
+  isNotNeuromorphicInMemoryCompute : Bool
   deriving Repr
 
-/-- Quantum computing is a machine class, not a PQC library. -/
+/-- Quantum computing uses qubits and quantum mechanics. It is not PQC. -/
 structure QuantumComputing where
+  usesQubitsAndQuantumMechanics : Bool
   isAMachineClass : Bool
   isNotPostQuantumCryptography : Bool
+  largeFaultTolerantMachinesAreResearchAimNotShipped : Bool
+  deriving Repr
+
+/-- Optical compute uses photons, not electrons. -/
+structure OpticalCompute where
+  usesPhotonsNotElectrons : Bool
+  isResearchAimNotShippedGeneralPurposeComputer : Bool
+  deriving Repr
+
+/--
+  Neuromorphic in-memory compute stores and computes in the same hardware.
+-/
+structure NeuromorphicInMemoryCompute where
+  storesAndComputesInTheSameHardware : Bool
+  isResearchAimNotShipped : Bool
   deriving Repr
 
 /-- Provably perfect: best we can, despite everything. Not metaphysical perfection. -/
@@ -217,9 +250,12 @@ structure Vocabulary where
   karibu : KaribuNote
   theoryAndEvidencePicture : TheoryAndEvidencePicture
   leanScope : LeanScope
+  operatingSystem : OperatingSystem
   grokOss : GrokOss
   postQuantumCryptography : PostQuantumCryptography
   quantumComputing : QuantumComputing
+  opticalCompute : OpticalCompute
+  neuromorphicInMemoryCompute : NeuromorphicInMemoryCompute
   provablyPerfect : ProvablyPerfect
   endure : EndurePhilosophy
   deriving Repr
@@ -258,6 +294,7 @@ def assertedVocabulary : Vocabulary where
   falseWitness := { forbidden := true }
   ecumenism := { focusOnSharedCommonValues := true }
   bitcoin := {
+    isPeerToPeerElectronicCash := true
     challengesNationStateMonetarySovereignty := true
     voluntaryCheckOnCentralBankerOverreach := true
     firstOptionVsHyperinflationViolence := true
@@ -265,6 +302,7 @@ def assertedVocabulary : Vocabulary where
     hasFlaws := true
   }
   fiat := {
+    isGovernmentIssuedMoneyNotConvertibleToCommodity := true
     dollarAsWeKnowItSince1971 := true
     systemsEndAsPredecessorsEnded := true
     nineteenSeventyOneIsSiteHistoricalReadingNotDouayQuote := true
@@ -276,6 +314,7 @@ def assertedVocabulary : Vocabulary where
     biblicalJubileeIsDistinctFrom1971Reading := true
   }
   naturalLaw := {
+    isUniversalPrinciplesDiscernibleByReason := true
     hardenedMoneyBuiltOnIt := true
     appliedMathAndCryptoEmergentFromNature := true
     appliedMathAndCryptoExtrajudicial := true
@@ -321,7 +360,14 @@ def assertedVocabulary : Vocabulary where
     leanDoesNotProveWeWillEndure := true
     leanDoesNotProveBitcoinWillWin := true
   }
+  operatingSystem := {
+    kernelRunsAtHighestCpuPrivilege := true
+    onX86ThatIsRing0 := true
+    ownsHardwareMemoryProcessesAndIo := true
+    userspaceHarnessIsNotThat := true
+  }
   grokOss := {
+    isHarness := true
     isNotYetOperatingSystem := true
     helpsBootstrapFutureOs := true
   }
@@ -330,10 +376,22 @@ def assertedVocabulary : Vocabulary where
     isNotQuantumComputing := true
     bip360IsProposedPqcNotAQuantumComputer := true
     libbitcoinpqcIsNotAQuantumComputer := true
+    isNotOpticalCompute := true
+    isNotNeuromorphicInMemoryCompute := true
   }
   quantumComputing := {
+    usesQubitsAndQuantumMechanics := true
     isAMachineClass := true
     isNotPostQuantumCryptography := true
+    largeFaultTolerantMachinesAreResearchAimNotShipped := true
+  }
+  opticalCompute := {
+    usesPhotonsNotElectrons := true
+    isResearchAimNotShippedGeneralPurposeComputer := true
+  }
+  neuromorphicInMemoryCompute := {
+    storesAndComputesInTheSameHardware := true
+    isResearchAimNotShipped := true
   }
   provablyPerfect := {
     meansBestWeCanDespiteEverything := true
@@ -375,6 +433,7 @@ structure WellFormed (v : Vocabulary) : Prop where
       DouayRheims.Warrant.versePair .matthew_11_29 .philippians_2_3
   falseWitnessForbidden : v.falseWitness.forbidden = true
   ecumenismSharedValues : v.ecumenism.focusOnSharedCommonValues = true
+  bitcoinIsPeerToPeerElectronicCash : v.bitcoin.isPeerToPeerElectronicCash = true
   bitcoinChallengesNationStateMonetarySovereignty :
     v.bitcoin.challengesNationStateMonetarySovereignty = true
   bitcoinVoluntaryCheckOnCentralBankerOverreach :
@@ -383,6 +442,8 @@ structure WellFormed (v : Vocabulary) : Prop where
     v.bitcoin.firstOptionVsHyperinflationViolence = true
   bitcoinIsNaturalChoice : v.bitcoin.isNaturalChoice = true
   bitcoinHasFlaws : v.bitcoin.hasFlaws = true
+  fiatIsGovernmentIssuedMoneyNotConvertibleToCommodity :
+    v.fiat.isGovernmentIssuedMoneyNotConvertibleToCommodity = true
   dollarAsWeKnowItSince1971 : v.fiat.dollarAsWeKnowItSince1971 = true
   fiatSystemsEndAsPredecessorsEnded : v.fiat.systemsEndAsPredecessorsEnded = true
   nineteenSeventyOneIsSiteHistoricalReadingNotDouayQuote :
@@ -393,6 +454,8 @@ structure WellFormed (v : Vocabulary) : Prop where
     v.jubilee.biblicalJubileeIsLeviticus25FiftiethYear = true
   biblicalJubileeIsDistinctFrom1971Reading :
     v.jubilee.biblicalJubileeIsDistinctFrom1971Reading = true
+  naturalLawIsUniversalPrinciplesDiscernibleByReason :
+    v.naturalLaw.isUniversalPrinciplesDiscernibleByReason = true
   naturalLawMoney : v.naturalLaw.hardenedMoneyBuiltOnIt = true
   appliedMathAndCryptoEmergentFromNature :
     v.naturalLaw.appliedMathAndCryptoEmergentFromNature = true
@@ -444,6 +507,13 @@ structure WellFormed (v : Vocabulary) : Prop where
   leanDoesNotProveGodExists : v.leanScope.leanDoesNotProveGodExists = true
   leanDoesNotProveWeWillEndure : v.leanScope.leanDoesNotProveWeWillEndure = true
   leanDoesNotProveBitcoinWillWin : v.leanScope.leanDoesNotProveBitcoinWillWin = true
+  osKernelRunsAtHighestPrivilege :
+    v.operatingSystem.kernelRunsAtHighestCpuPrivilege = true
+  osOnX86IsRing0 : v.operatingSystem.onX86ThatIsRing0 = true
+  osOwnsHardwareMemoryProcessesAndIo :
+    v.operatingSystem.ownsHardwareMemoryProcessesAndIo = true
+  osUserspaceHarnessIsNotThat : v.operatingSystem.userspaceHarnessIsNotThat = true
+  grokOssIsHarness : v.grokOss.isHarness = true
   grokOssIsNotYetOperatingSystem : v.grokOss.isNotYetOperatingSystem = true
   grokOssHelpsBootstrapFutureOs : v.grokOss.helpsBootstrapFutureOs = true
   pqcIsClassicalCryptoMeantToResistQuantumComputers :
@@ -455,9 +525,24 @@ structure WellFormed (v : Vocabulary) : Prop where
     v.postQuantumCryptography.bip360IsProposedPqcNotAQuantumComputer = true
   libbitcoinpqcIsNotAQuantumComputer :
     v.postQuantumCryptography.libbitcoinpqcIsNotAQuantumComputer = true
+  pqcIsNotOpticalCompute : v.postQuantumCryptography.isNotOpticalCompute = true
+  pqcIsNotNeuromorphicInMemoryCompute :
+    v.postQuantumCryptography.isNotNeuromorphicInMemoryCompute = true
+  quantumComputingUsesQubitsAndQuantumMechanics :
+    v.quantumComputing.usesQubitsAndQuantumMechanics = true
   quantumComputingIsAMachineClass : v.quantumComputing.isAMachineClass = true
   quantumComputingIsNotPqc :
     v.quantumComputing.isNotPostQuantumCryptography = true
+  quantumComputingLargeFaultTolerantAreResearchAimNotShipped :
+    v.quantumComputing.largeFaultTolerantMachinesAreResearchAimNotShipped = true
+  opticalComputeUsesPhotonsNotElectrons :
+    v.opticalCompute.usesPhotonsNotElectrons = true
+  opticalComputeIsResearchAimNotShipped :
+    v.opticalCompute.isResearchAimNotShippedGeneralPurposeComputer = true
+  neuromorphicStoresAndComputesInSameHardware :
+    v.neuromorphicInMemoryCompute.storesAndComputesInTheSameHardware = true
+  neuromorphicIsResearchAimNotShipped :
+    v.neuromorphicInMemoryCompute.isResearchAimNotShipped = true
   provablyPerfectMeansBestWeCan :
     v.provablyPerfect.meansBestWeCanDespiteEverything = true
   provablyPerfectIsNotMetaphysicalPerfection :
@@ -495,11 +580,13 @@ theorem asserted_vocabulary_well_formed : WellFormed assertedVocabulary where
   humilityWarrantIsVersePair := rfl
   falseWitnessForbidden := rfl
   ecumenismSharedValues := rfl
+  bitcoinIsPeerToPeerElectronicCash := rfl
   bitcoinChallengesNationStateMonetarySovereignty := rfl
   bitcoinVoluntaryCheckOnCentralBankerOverreach := rfl
   bitcoinFirstOptionVsHyperinflationViolence := rfl
   bitcoinIsNaturalChoice := rfl
   bitcoinHasFlaws := rfl
+  fiatIsGovernmentIssuedMoneyNotConvertibleToCommodity := rfl
   dollarAsWeKnowItSince1971 := rfl
   fiatSystemsEndAsPredecessorsEnded := rfl
   nineteenSeventyOneIsSiteHistoricalReadingNotDouayQuote := rfl
@@ -507,6 +594,7 @@ theorem asserted_vocabulary_well_formed : WellFormed assertedVocabulary where
   debtJubileesEveryFiftyYears := rfl
   biblicalJubileeIsLeviticus25FiftiethYear := rfl
   biblicalJubileeIsDistinctFrom1971Reading := rfl
+  naturalLawIsUniversalPrinciplesDiscernibleByReason := rfl
   naturalLawMoney := rfl
   appliedMathAndCryptoEmergentFromNature := rfl
   appliedMathAndCryptoExtrajudicial := rfl
@@ -539,14 +627,27 @@ theorem asserted_vocabulary_well_formed : WellFormed assertedVocabulary where
   leanDoesNotProveGodExists := rfl
   leanDoesNotProveWeWillEndure := rfl
   leanDoesNotProveBitcoinWillWin := rfl
+  osKernelRunsAtHighestPrivilege := rfl
+  osOnX86IsRing0 := rfl
+  osOwnsHardwareMemoryProcessesAndIo := rfl
+  osUserspaceHarnessIsNotThat := rfl
+  grokOssIsHarness := rfl
   grokOssIsNotYetOperatingSystem := rfl
   grokOssHelpsBootstrapFutureOs := rfl
   pqcIsClassicalCryptoMeantToResistQuantumComputers := rfl
   pqcIsNotQuantumComputing := rfl
   bip360IsProposedPqcNotAQuantumComputer := rfl
   libbitcoinpqcIsNotAQuantumComputer := rfl
+  pqcIsNotOpticalCompute := rfl
+  pqcIsNotNeuromorphicInMemoryCompute := rfl
+  quantumComputingUsesQubitsAndQuantumMechanics := rfl
   quantumComputingIsAMachineClass := rfl
   quantumComputingIsNotPqc := rfl
+  quantumComputingLargeFaultTolerantAreResearchAimNotShipped := rfl
+  opticalComputeUsesPhotonsNotElectrons := rfl
+  opticalComputeIsResearchAimNotShipped := rfl
+  neuromorphicStoresAndComputesInSameHardware := rfl
+  neuromorphicIsResearchAimNotShipped := rfl
   provablyPerfectMeansBestWeCan := rfl
   provablyPerfectIsNotMetaphysicalPerfection := rfl
   protectContributorsFriendsAndLovedOnes := rfl
@@ -634,6 +735,24 @@ theorem grok_oss_is_not_yet_an_operating_system
     (v : Vocabulary) (h : WellFormed v) :
     v.grokOss.isNotYetOperatingSystem = true :=
   h.grokOssIsNotYetOperatingSystem
+
+theorem grok_oss_is_a_harness (v : Vocabulary) (h : WellFormed v) :
+    v.grokOss.isHarness = true :=
+  h.grokOssIsHarness
+
+/-- Printed copy: an OS is a ring-0 kernel; a userspace harness is not that. -/
+theorem operating_system_is_ring0_kernel
+    (v : Vocabulary) (h : WellFormed v) :
+    v.operatingSystem.kernelRunsAtHighestCpuPrivilege = true ∧
+      v.operatingSystem.onX86ThatIsRing0 = true ∧
+      v.operatingSystem.userspaceHarnessIsNotThat = true :=
+  ⟨h.osKernelRunsAtHighestPrivilege, h.osOnX86IsRing0, h.osUserspaceHarnessIsNotThat⟩
+
+/-- Printed copy: quantum computing uses qubits and quantum mechanics. -/
+theorem quantum_computing_uses_qubits
+    (v : Vocabulary) (h : WellFormed v) :
+    v.quantumComputing.usesQubitsAndQuantumMechanics = true :=
+  h.quantumComputingUsesQubitsAndQuantumMechanics
 
 /-- Printed copy: PQC is not quantum computing. -/
 theorem pqc_is_not_quantum_computing

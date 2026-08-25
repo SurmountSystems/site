@@ -38,7 +38,10 @@ Do not add a third.
 `just check` runs `nix run --max-jobs 0 --cores 64 path:.#check`, then
 `nix build --max-jobs 0 --cores 64 --print-build-logs path:.?dir=lean`. Lean is
 part of `just check`. Compiles stay on the remote builder (`--max-jobs 0`).
-`--cores 64` is that builder. There is no `just prove` recipe. `just serve`
+`--cores 64` is that builder. GitHub Actions runs that same recipe after it
+configures that builder from Actions secrets (`SURMOUNT_NIXBUILDER_SSH_KEY`,
+`SURMOUNT_NIXBUILDER_KNOWN_HOSTS`, `SURMOUNT_NIX_BUILDERS`; organization
+secrets preferred). There is no `just prove` recipe. `just serve`
 runs `nix run path:.#build`, then `nix run path:.#serve`. The site flake pins
 Rust 1.98.0 for nav-ssg.
 

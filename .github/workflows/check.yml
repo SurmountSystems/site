@@ -2,8 +2,11 @@
 # `just check` is `nix run --max-jobs 0 --cores 64 path:.#check`, then
 # `nix build --max-jobs 0 --cores 64 --print-build-logs path:.?dir=lean`.
 # Lean also uses `requiredSystemFeatures` (`big-parallel`, `surmount-remote`).
-# The runner needs the same Nix remote builder as local `just check`.
-# Do not skip Lean.
+# The GitHub-hosted runner has no builders of its own. Point Nix at the
+# remote builder using Actions secrets only (no hostnames, host keys, or
+# account names in this file). Prefer an organization secret so every
+# SurmountSystems repo can share it. Fork pull requests do not receive
+# those secrets. Do not skip Lean.
 name: check
 
 on:
@@ -13,8 +16,46 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v31
+      - name: Configure Nix remote builder
+        env:
+          SURMOUNT_NIXBUILDER_SSH_KEY: ${{ secrets.SURMOUNT_NIXBUILDER_SSH_KEY }}
+          SURMOUNT_NIXBUILDER_KNOWN_HOSTS: ${{ secrets.SURMOUNT_NIXBUILDER_KNOWN_HOSTS }}
+          SURMOUNT_NIX_BUILDERS: ${{ secrets.SURMOUNT_NIX_BUILDERS }}
+        run: |
+          missing=
+          if [ -z "${SURMOUNT_NIXBUILDER_SSH_KEY}" ]; then
+            missing="${missing} SURMOUNT_NIXBUILDER_SSH_KEY"
+          fi
+          if [ -z "${SURMOUNT_NIXBUILDER_KNOWN_HOSTS}" ]; then
+            missing="${missing} SURMOUNT_NIXBUILDER_KNOWN_HOSTS"
+          fi
+          if [ -z "${SURMOUNT_NIX_BUILDERS}" ]; then
+            missing="${missing} SURMOUNT_NIX_BUILDERS"
+          fi
+          if [ -n "${missing}" ]; then
+            echo "Missing Actions secret(s):${missing}"
+            echo "Set them on the organization (preferred) or this repository."
+            exit 1
+          fi
+          sudo mkdir -p /etc/nix /root/.ssh "${HOME}/.ssh"
+          printf '%s\n' "${SURMOUNT_NIXBUILDER_SSH_KEY}" | sudo tee /etc/nix/remote-builder-key >/dev/null
+          sudo chmod 600 /etc/nix/remote-builder-key
+          sudo cp /etc/nix/remote-builder-key "${HOME}/.ssh/remote-builder-key"
+          sudo chown "${USER}:${USER}" "${HOME}/.ssh/remote-builder-key"
+          chmod 600 "${HOME}/.ssh/remote-builder-key"
+          printf '%s\n' "${SURMOUNT_NIXBUILDER_KNOWN_HOSTS}" | sudo tee /root/.ssh/known_hosts >/dev/null
+          printf '%s\n' "${SURMOUNT_NIXBUILDER_KNOWN_HOSTS}" > "${HOME}/.ssh/known_hosts"
+          sudo chmod 644 /root/.ssh/known_hosts
+          chmod 644 "${HOME}/.ssh/known_hosts"
+          printf '%s\n' "${SURMOUNT_NIX_BUILDERS}" | sudo tee /etc/nix/machines >/dev/null
+          printf '%s\n' 'builders-use-substitutes = true' 'builders = @/etc/nix/machines' \
+            | sudo tee -a /etc/nix/nix.conf >/dev/null
+          sudo systemctl restart nix-daemon
       - uses: extractions/setup-just@v3
       - run: just check
+        env:
+          NIX_SSHOPTS: -o BatchMode=yes -o IdentitiesOnly=yes

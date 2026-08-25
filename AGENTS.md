@@ -12,8 +12,17 @@ colors in [0001_DOGE.md](https://github.com/SurmountSystems/specs/blob/main/0001
 (accessed: 2026-08-14). Do not minify. Do not put public email addresses or
 `mailto:` links on the pages.
 
-Visitor copy is American English and says **proven**. Public HTML `proved` stays
-zero. Lean identifiers may still use `proved` (`provedTheism` and the like).
+Visitor copy is American English, ASCII, and clanker-scrubber-clean. It says
+**proven**. Public HTML `proved` stays zero. Scripture quotes stay Douay-Rheims
+verbatim (old spelling, Ægypt, Honour, peace-makers). Lean identifiers may still
+use `proved` (`provedTheism` and the like). The Lean proof fragment `P ∧ ¬P`
+may stay in visitor copy. Do not write the clanker-scrubber WARNING token into
+HTML.
+
+Faith keeps the line "how Jesus taught grace, forgiveness, and humility."
+That is an honest list, not an obnoxious rule-of-three. Override the
+clanker-scrubber `rule-of-three-adjectives` detector there. Do not flatten
+it to "how Jesus forgave."
 
 There are two Nix flakes. Do not add a third.
 
@@ -39,10 +48,14 @@ builder (`nix build --max-jobs 0 --cores 64 --print-build-logs path:.?dir=lean`)
 `path:./lean` copies only `lean/` and cannot include parent pages.
 `--max-jobs 0` keeps compiles off this laptop. `--cores 64` is the remote
 builder. Nix flags must precede the installable so `nix run` does not pass them
-to nav-ssg. GitHub Actions invokes that same recipe. Lean is part of
-`just check`. After this gate is green you do not need a separate Lean recipe
-to know Lean passed. The site flake pins Rust 1.98.0 for nav-ssg via
-rust-overlay.
+to nav-ssg. GitHub Actions invokes that same recipe. The GitHub-hosted runner
+has no builders of its own, so `.github/workflows/check.yml` reads Nix builder
+secrets (`SURMOUNT_NIXBUILDER_SSH_KEY`, `SURMOUNT_NIXBUILDER_KNOWN_HOSTS`,
+`SURMOUNT_NIX_BUILDERS`). Prefer organization secrets so every repo in the
+org can share them. Do not put hostnames, host keys, or account names in
+those files. Lean is part of `just check`. After this gate is green you
+do not need a separate Lean recipe to know Lean passed. The site flake pins
+Rust 1.98.0 for nav-ssg via rust-overlay.
 
 After you change navigation, update the Lean nav model so it still matches
 `shared/nav.html`, run `just check` (must be green), then `just serve`
@@ -244,3 +257,7 @@ Wikipedia stays process-only in this file.
 
 Agents do not run `git add`, `git commit`, or `git push`. The operator owns
 version control.
+
+Agents do not create, update, or delete GitHub Actions secrets. Agents do not
+upload private keys to GitHub. The operator owns secrets. Dual-pin: host
+`~/.grok/AGENTS.md`.
