@@ -11,7 +11,9 @@
 
   In-site `*.html` targets must be public pages. `#fragment` and `page.html#id`
   must exist as `id` on the target page. `mailto:`, `javascript:`, empty hrefs,
-  and wikipedia.org are ill-formed. `Grokipedia.lean` finds a Grokipedia
+  and wikipedia.org are ill-formed. Printed pages must not contain the
+  forbidden visitor word named in `forbiddenVisitorWord`. `Grokipedia.lean`
+  finds a Grokipedia
   equivalent for any Wikipedia href. If that equivalent cannot be formed, or
   Grokipedia is insufficient, the Grokipedia well-formed site is uninhabited.
   Public pages must use the Grokipedia URL. Copy assertions are structure
@@ -180,6 +182,27 @@ def noEmptyHref (s : Site) : Bool :=
   SiteNav.allPages.all (fun p ↦
     (hrefsOf s p).all (fun h ↦ classify h != .empty))
 
+/-- ASCII case fold for visitor-word checks. -/
+def asciiLowerChar (c : Char) : Char :=
+  if 'A' ≤ c ∧ c ≤ 'Z' then Char.ofNat (c.toNat + 32) else c
+
+def asciiLower (s : String) : String :=
+  s.map asciiLowerChar
+
+/-- Substring, ASCII case-insensitive. Empty needle is not a hit. -/
+def hasAsciiIgnoreCase (hay needle : String) : Bool :=
+  needle != "" && ((asciiLower hay).splitOn (asciiLower needle)).length > 1
+
+/--
+  Forbidden public visitor word. GitHub `cryptoquick` is not this substring.
+  The word is named here so include_str of HTML does not have to print it.
+-/
+def forbiddenVisitorWord : String := "cryptocurrency"
+
+def noForbiddenVisitorWord (s : Site) : Bool :=
+  SiteNav.allPages.all (fun p ↦
+    !(hasAsciiIgnoreCase (s.html p) forbiddenVisitorWord))
+
 def idsUniqueOnEachPage (s : Site) : Bool :=
   SiteNav.allPages.all (fun p ↦ SiteNav.hasDuplicate (idsOf s p) == false)
 
@@ -197,6 +220,7 @@ structure WellFormed (s : Site) : Prop where
   idsUniqueOnEachPage : idsUniqueOnEachPage s = true
   navHrefsPresent : navHrefsPresent s = true
   sharedNavFileEqSiteNav : site_shared_nav_html = SiteNav.site_nav_html
+  noForbiddenVisitorWord : noForbiddenVisitorWord s = true
 
 -- Parser fixtures: a bad link is a failed theorem.
 
@@ -321,6 +345,7 @@ theorem asserted_links_well_formed : WellFormed assertedSite where
   idsUniqueOnEachPage := by native_decide
   navHrefsPresent := by native_decide
   sharedNavFileEqSiteNav := by native_decide
+  noForbiddenVisitorWord := by native_decide
 
 theorem every_in_site_href_resolves (s : Site) (h : WellFormed s) :
     allHrefsResolve s = true :=
@@ -353,6 +378,26 @@ theorem nav_hrefs_are_public_pages (s : Site) (h : WellFormed s) :
 theorem printed_shared_nav_eq_sitenav (s : Site) (h : WellFormed s) :
     site_shared_nav_html = SiteNav.site_nav_html :=
   h.sharedNavFileEqSiteNav
+
+theorem cryptoquick_url_is_not_the_forbidden_visitor_word :
+    hasAsciiIgnoreCase
+        "https://github.com/cryptoquick/original-douay-rheims"
+        forbiddenVisitorWord = false := by
+  native_decide
+
+theorem forbidden_visitor_word_is_detected :
+    hasAsciiIgnoreCase "<p>Cryptocurrency</p>" forbiddenVisitorWord = true := by
+  native_decide
+
+/-- Printed public pages do not contain the forbidden visitor word. -/
+theorem visitor_copy_does_not_say_cryptocurrency
+    (s : Site) (h : WellFormed s) :
+    noForbiddenVisitorWord s = true :=
+  h.noForbiddenVisitorWord
+
+theorem asserted_visitor_copy_does_not_say_cryptocurrency :
+    noForbiddenVisitorWord assertedSite = true := by
+  native_decide
 
 theorem site_links_consistent : WellFormed assertedSite :=
   asserted_links_well_formed

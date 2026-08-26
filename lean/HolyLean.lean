@@ -217,6 +217,23 @@ structure EndurePhilosophy where
   endureWhereOthersFailIfProtected : Bool
   deriving Repr
 
+/--
+  NAICS 541512 Computer Systems Design Services. High-assurance compute
+  infrastructure, not NAICS sector 52. Lean does not prove Bitcoin will win.
+-/
+structure ComputerSystemsDesign where
+  naicsIs541512 : Bool
+  titleIsComputerSystemsDesignServices : Bool
+  census541512Wording : Bool
+  isNotNaicsSector52 : Bool
+  sector52IsFinanceAndInsurance : Bool
+  highAssuranceComputeInfrastructure : Bool
+  defenseInDepthAcrossSoftwareAndHardware : Bool
+  provablyHardened : Bool
+  bitcoinInfrastructureResearch : Bool
+  trustlessBecauseTheWorkIsProven : Bool
+  deriving Repr
+
 /-- Honest weights and measures, a Christian principle named on Philosophy. -/
 structure HonestWeightsAndMeasures where
   isChristianPrinciple : Bool
@@ -258,6 +275,7 @@ structure Vocabulary where
   neuromorphicInMemoryCompute : NeuromorphicInMemoryCompute
   provablyPerfect : ProvablyPerfect
   endure : EndurePhilosophy
+  computerSystemsDesign : ComputerSystemsDesign
   deriving Repr
 
 /-- The live public vocabulary, as a model. These values are asserted, not proven. -/
@@ -401,6 +419,18 @@ def assertedVocabulary : Vocabulary where
     protectContributorsFriendsAndLovedOnes := true
     protectAgainstThreatsToThingsTheyValue := true
     endureWhereOthersFailIfProtected := true
+  }
+  computerSystemsDesign := {
+    naicsIs541512 := true
+    titleIsComputerSystemsDesignServices := true
+    census541512Wording := true
+    isNotNaicsSector52 := true
+    sector52IsFinanceAndInsurance := true
+    highAssuranceComputeInfrastructure := true
+    defenseInDepthAcrossSoftwareAndHardware := true
+    provablyHardened := true
+    bitcoinInfrastructureResearch := true
+    trustlessBecauseTheWorkIsProven := true
   }
 
 /-- Well-formed vocabulary: site definitions, with no P ∧ ¬P. -/
@@ -553,6 +583,22 @@ structure WellFormed (v : Vocabulary) : Prop where
     v.endure.protectAgainstThreatsToThingsTheyValue = true
   endureWhereOthersFailIfProtected :
     v.endure.endureWhereOthersFailIfProtected = true
+  naicsIs541512 : v.computerSystemsDesign.naicsIs541512 = true
+  titleIsComputerSystemsDesignServices :
+    v.computerSystemsDesign.titleIsComputerSystemsDesignServices = true
+  census541512Wording : v.computerSystemsDesign.census541512Wording = true
+  isNotNaicsSector52 : v.computerSystemsDesign.isNotNaicsSector52 = true
+  sector52IsFinanceAndInsurance :
+    v.computerSystemsDesign.sector52IsFinanceAndInsurance = true
+  highAssuranceComputeInfrastructure :
+    v.computerSystemsDesign.highAssuranceComputeInfrastructure = true
+  defenseInDepthAcrossSoftwareAndHardware :
+    v.computerSystemsDesign.defenseInDepthAcrossSoftwareAndHardware = true
+  provablyHardened : v.computerSystemsDesign.provablyHardened = true
+  bitcoinInfrastructureResearch :
+    v.computerSystemsDesign.bitcoinInfrastructureResearch = true
+  trustlessBecauseTheWorkIsProven :
+    v.computerSystemsDesign.trustlessBecauseTheWorkIsProven = true
 
 theorem asserted_vocabulary_well_formed : WellFormed assertedVocabulary where
   scienceIsNaturalPhilosophy := rfl
@@ -653,6 +699,16 @@ theorem asserted_vocabulary_well_formed : WellFormed assertedVocabulary where
   protectContributorsFriendsAndLovedOnes := rfl
   protectAgainstThreatsToThingsTheyValue := rfl
   endureWhereOthersFailIfProtected := rfl
+  naicsIs541512 := rfl
+  titleIsComputerSystemsDesignServices := rfl
+  census541512Wording := rfl
+  isNotNaicsSector52 := rfl
+  sector52IsFinanceAndInsurance := rfl
+  highAssuranceComputeInfrastructure := rfl
+  defenseInDepthAcrossSoftwareAndHardware := rfl
+  provablyHardened := rfl
+  bitcoinInfrastructureResearch := rfl
+  trustlessBecauseTheWorkIsProven := rfl
 
 /-- Neither theism nor atheism is scientifically proven. -/
 theorem neither_theism_nor_atheism_scientifically_proven
@@ -772,5 +828,24 @@ theorem quoted_edition_is_douay_not_kjv_not_challoner
       v.quotedEdition.quotedEditionIsNotChalloner = true :=
   ⟨h.quotedEditionIsOriginalDouayRheims, h.quotedEditionIsNotKingJames,
     h.quotedEditionIsNotChalloner⟩
+
+/-- Printed copy: the work is NAICS 541512 Computer Systems Design Services. -/
+theorem we_are_naics_541512 (v : Vocabulary) (h : WellFormed v) :
+    v.computerSystemsDesign.naicsIs541512 = true ∧
+      v.computerSystemsDesign.titleIsComputerSystemsDesignServices = true :=
+  ⟨h.naicsIs541512, h.titleIsComputerSystemsDesignServices⟩
+
+/-- Printed copy: the work is not NAICS sector 52 (Finance and Insurance). -/
+theorem we_are_not_naics_52 (v : Vocabulary) (h : WellFormed v) :
+    v.computerSystemsDesign.isNotNaicsSector52 = true ∧
+      v.computerSystemsDesign.sector52IsFinanceAndInsurance = true :=
+  ⟨h.isNotNaicsSector52, h.sector52IsFinanceAndInsurance⟩
+
+/-- Printed copy: trustless because the work is proven; not that Bitcoin wins. -/
+theorem trustless_because_the_work_is_proven
+    (v : Vocabulary) (h : WellFormed v) :
+    v.computerSystemsDesign.trustlessBecauseTheWorkIsProven = true ∧
+      v.leanScope.leanDoesNotProveBitcoinWillWin = true :=
+  ⟨h.trustlessBecauseTheWorkIsProven, h.leanDoesNotProveBitcoinWillWin⟩
 
 end HolyLean

@@ -89,6 +89,29 @@ a turning sword**. Do not invent verses. The word **karibu** is not in this
 edition. If you keep a karibu historical gloss, it is a separate note, not a
 Douay-Rheims quote.
 
+## Narrative and NAICS (pinned 2026-08-26)
+
+Public copy is high-assurance systems software and Bitcoin infrastructure
+research, not a "crypto company," not payments, not custody, not an
+exchange. You may say **Bitcoin**. You may say **cryptography**. You may
+not say **cryptocurrency**. Do not look like an MSB.
+
+NAICS is **541512 Computer Systems Design Services** (Census: planning and
+designing computer systems that integrate computer hardware, software, and
+communication technologies). Do not use anything in **52** (Finance and
+Insurance): transaction processing, intermediation, exchanges, MSBs. We
+are not that.
+
+The headline is defense-in-depth, holistic software and hardware, provably
+hardened, high-assurance compute infrastructure. It is not "we write code."
+Trustless is the future because the work is proven, not because we run a
+money-services shop. Lean still does not prove that Bitcoin will win or
+that Surmount will endure in the world.
+
+Lean encodes this as a site claim (`lean/SiteConsistency.lean` and matching
+vocabulary). Dual-pin the public pages. Do not add a field that we are an
+MSB or that we are NAICS 52.
+
 ## Public sources
 
 Wikipedia is not a public source. Prefer Grokipedia. Citations on the pages

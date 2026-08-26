@@ -1,5 +1,6 @@
 /-
-  Encoded public copy of surmount.systems after the 2026-08-19 honesty edits.
+  Encoded public copy of surmount.systems after the 2026-08-19 honesty edits
+  and the 2026-08-26 NAICS 541512 narrative.
 
   This library does not prove God, Bitcoin, a product result, or that
   Surmount will endure in the world. It proves that the encoded claims do
@@ -141,6 +142,16 @@ structure SiteCopy where
   neuromorphicStoresAndComputesInSameHardware : Bool
   advancedComputeIsResearchAimNotShipped : Bool
   contributorsPageInvitesPastAndFutureContact : Bool
+  naicsIs541512 : Bool
+  naicsTitleIsComputerSystemsDesignServices : Bool
+  censusWordingPlanningAndDesigningComputerSystems : Bool
+  naicsIsNotSector52 : Bool
+  sector52IsFinanceAndInsurance : Bool
+  highAssuranceComputeInfrastructure : Bool
+  defenseInDepthAcrossSoftwareAndHardware : Bool
+  provablyHardened : Bool
+  bitcoinInfrastructureResearch : Bool
+  trustlessBecauseTheWorkIsProven : Bool
   deriving Repr
 
 /-- The live public copy, as a model. These values are asserted, not proven. -/
@@ -256,6 +267,16 @@ def assertedCopy : SiteCopy where
   neuromorphicStoresAndComputesInSameHardware := true
   advancedComputeIsResearchAimNotShipped := true
   contributorsPageInvitesPastAndFutureContact := true
+  naicsIs541512 := true
+  naicsTitleIsComputerSystemsDesignServices := true
+  censusWordingPlanningAndDesigningComputerSystems := true
+  naicsIsNotSector52 := true
+  sector52IsFinanceAndInsurance := true
+  highAssuranceComputeInfrastructure := true
+  defenseInDepthAcrossSoftwareAndHardware := true
+  provablyHardened := true
+  bitcoinInfrastructureResearch := true
+  trustlessBecauseTheWorkIsProven := true
 
 /-- Well-formed public copy: the spine after the honesty edits, with no P ∧ ¬P. -/
 structure WellFormed (s : SiteCopy) : Prop where
@@ -406,6 +427,20 @@ structure WellFormed (s : SiteCopy) : Prop where
     s.advancedComputeIsResearchAimNotShipped = true
   contributorsPageInvitesPastAndFutureContact :
     s.contributorsPageInvitesPastAndFutureContact = true
+  naicsIs541512 : s.naicsIs541512 = true
+  naicsTitleIsComputerSystemsDesignServices :
+    s.naicsTitleIsComputerSystemsDesignServices = true
+  censusWordingPlanningAndDesigningComputerSystems :
+    s.censusWordingPlanningAndDesigningComputerSystems = true
+  naicsIsNotSector52 : s.naicsIsNotSector52 = true
+  sector52IsFinanceAndInsurance : s.sector52IsFinanceAndInsurance = true
+  highAssuranceComputeInfrastructure :
+    s.highAssuranceComputeInfrastructure = true
+  defenseInDepthAcrossSoftwareAndHardware :
+    s.defenseInDepthAcrossSoftwareAndHardware = true
+  provablyHardened : s.provablyHardened = true
+  bitcoinInfrastructureResearch : s.bitcoinInfrastructureResearch = true
+  trustlessBecauseTheWorkIsProven : s.trustlessBecauseTheWorkIsProven = true
 
 theorem asserted_copy_well_formed : WellFormed assertedCopy where
   foundedOnChristianPrinciples := rfl
@@ -519,6 +554,16 @@ theorem asserted_copy_well_formed : WellFormed assertedCopy where
   neuromorphicStoresAndComputesInSameHardware := rfl
   advancedComputeIsResearchAimNotShipped := rfl
   contributorsPageInvitesPastAndFutureContact := rfl
+  naicsIs541512 := rfl
+  naicsTitleIsComputerSystemsDesignServices := rfl
+  censusWordingPlanningAndDesigningComputerSystems := rfl
+  naicsIsNotSector52 := rfl
+  sector52IsFinanceAndInsurance := rfl
+  highAssuranceComputeInfrastructure := rfl
+  defenseInDepthAcrossSoftwareAndHardware := rfl
+  provablyHardened := rfl
+  bitcoinInfrastructureResearch := rfl
+  trustlessBecauseTheWorkIsProven := rfl
 
 /-- Humility plus both-strong-claims plus neither-proven is not proven theism. -/
 theorem humility_is_not_proved_theism (s : SiteCopy)
@@ -698,12 +743,33 @@ theorem asserted_copy_agrees_with_holy_lean :
       HolyLean.assertedVocabulary.opticalCompute.usesPhotonsNotElectrons =
         assertedCopy.opticalComputeUsesPhotonsNotElectrons ∧
       HolyLean.assertedVocabulary.neuromorphicInMemoryCompute.storesAndComputesInTheSameHardware =
-        assertedCopy.neuromorphicStoresAndComputesInSameHardware :=
+        assertedCopy.neuromorphicStoresAndComputesInSameHardware ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.naicsIs541512 =
+        assertedCopy.naicsIs541512 ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.titleIsComputerSystemsDesignServices =
+        assertedCopy.naicsTitleIsComputerSystemsDesignServices ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.census541512Wording =
+        assertedCopy.censusWordingPlanningAndDesigningComputerSystems ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.isNotNaicsSector52 =
+        assertedCopy.naicsIsNotSector52 ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.sector52IsFinanceAndInsurance =
+        assertedCopy.sector52IsFinanceAndInsurance ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.highAssuranceComputeInfrastructure =
+        assertedCopy.highAssuranceComputeInfrastructure ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.defenseInDepthAcrossSoftwareAndHardware =
+        assertedCopy.defenseInDepthAcrossSoftwareAndHardware ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.provablyHardened =
+        assertedCopy.provablyHardened ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.bitcoinInfrastructureResearch =
+        assertedCopy.bitcoinInfrastructureResearch ∧
+      HolyLean.assertedVocabulary.computerSystemsDesign.trustlessBecauseTheWorkIsProven =
+        assertedCopy.trustlessBecauseTheWorkIsProven :=
   ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
     rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
     rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
     rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
-    rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
+    rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl,
+    rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 /-- Public-copy quotations equal the Douay-Rheims source strings. -/
 theorem asserted_copy_quotations_eq_douay_rheims :
@@ -874,6 +940,25 @@ theorem biblical_jubilee_is_distinct_from_1971_reading
 theorem lean_does_not_prove_bitcoin_will_win (s : SiteCopy) (h : WellFormed s) :
     s.leanDoesNotProveBitcoinWillWin = true :=
   h.leanDoesNotProveBitcoinWillWin
+
+/-- Printed copy: the work is NAICS 541512 Computer Systems Design Services. -/
+theorem we_are_naics_541512 (s : SiteCopy) (h : WellFormed s) :
+    s.naicsIs541512 = true ∧
+      s.naicsTitleIsComputerSystemsDesignServices = true :=
+  ⟨h.naicsIs541512, h.naicsTitleIsComputerSystemsDesignServices⟩
+
+/-- Printed copy: the work is not NAICS sector 52 (Finance and Insurance). -/
+theorem we_are_not_naics_52 (s : SiteCopy) (h : WellFormed s) :
+    s.naicsIsNotSector52 = true ∧
+      s.sector52IsFinanceAndInsurance = true :=
+  ⟨h.naicsIsNotSector52, h.sector52IsFinanceAndInsurance⟩
+
+/-- Printed copy: trustless because the work is proven; not that Bitcoin wins. -/
+theorem trustless_because_the_work_is_proven
+    (s : SiteCopy) (h : WellFormed s) :
+    s.trustlessBecauseTheWorkIsProven = true ∧
+      s.leanDoesNotProveBitcoinWillWin = true :=
+  ⟨h.trustlessBecauseTheWorkIsProven, h.leanDoesNotProveBitcoinWillWin⟩
 
 /-- Combined consistency: the public copy inhabits a well-formed model. -/
 theorem site_claims_consistent : WellFormed assertedCopy :=

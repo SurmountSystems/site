@@ -364,6 +364,12 @@ theorem printed_accepted_contains_bitcoin :
     printedAccepted.contains "https://grokipedia.com/page/Bitcoin" = true := by
   native_decide
 
+theorem printed_accepted_contains_naics :
+    printedAccepted.contains
+        "https://grokipedia.com/page/North_American_Industry_Classification_System" =
+      true := by
+  native_decide
+
 theorem printed_accepted_contains_russells_teapot :
     printedAccepted.contains "https://grokipedia.com/page/Russell's_teapot" =
       true := by
