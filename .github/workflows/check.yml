@@ -41,7 +41,9 @@ jobs:
             echo "Set them on the organization (preferred) or this repository."
             exit 1
           fi
-          sudo mkdir -p /etc/nix /root/.ssh "${HOME}/.ssh"
+          mkdir -p "${HOME}/.ssh"
+          chmod 700 "${HOME}/.ssh"
+          sudo mkdir -p /etc/nix /root/.ssh
           printf '%s\n' "${SURMOUNT_NIXBUILDER_SSH_KEY}" | sudo tee /etc/nix/remote-builder-key >/dev/null
           sudo chmod 600 /etc/nix/remote-builder-key
           sudo cp /etc/nix/remote-builder-key "${HOME}/.ssh/remote-builder-key"
